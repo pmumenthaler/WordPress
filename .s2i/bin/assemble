@@ -13,7 +13,7 @@ echo "Making pre-invocation changes..."
 mkdir -p /tmp/src2
 cp -a /tmp/src/* /tmp/src2
 /usr/libexec/s2i/assemble
-
+cp -a /tmp/src2/* /opt/app-root/src
 rc=$?
 if [ $rc -eq 0 ]; then
 echo "Making post-invocation changes..."
