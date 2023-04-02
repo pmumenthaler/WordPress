@@ -11,7 +11,6 @@ export DB_PASSWORD=${DB_PASSWORD}
 export DB_USER=${DB_USER} 
 export DB_NAME=${DB_NAME} 
 export DB_HOST=${DB_HOST}
-pwd
-ls
 #envsubst < /opt/app-root/src/wp-config-sample.php > ${DOCUMENTROOT}/wp-config.php
+fix-permissions /opt/app-root/src
 exec /usr/libexec/s2i/run
