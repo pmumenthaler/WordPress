@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Making pre-invocation changes..."
 
-envsubst < /opt/app-root/src/wp-config.php > /opt/app-root/src/wp-config.php
 /usr/libexec/s2i/assemble
+envsubst < /opt/app-root/src/wp-config.php > /opt/app-root/src/wp-config.php
 
 rc=$?
 if [ $rc -eq 0 ]; then
