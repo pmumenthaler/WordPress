@@ -2,7 +2,6 @@
 set -x
 echo "Making pre-invocation changes..."
 
-env
 
 #envsubst < /tmp/src/wp-config-sample.php > /tmp/src/wp-config.php
 
@@ -11,7 +10,8 @@ env
 #sed -ri -e "s/password_here/$DB_PASSWORD/g" /tmp/src/wp-config.php
 #sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 
-
+mkdir -p /tmp/src2
+cp -a /tmp/src/* /tmp/src2
 /usr/libexec/s2i/assemble
 
 rc=$?
