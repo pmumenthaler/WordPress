@@ -7,5 +7,5 @@ export DB_NAME=${DB_NAME}
 export DB_HOST=${DB_HOST}
 pwd
 ls
-envsubst < /opt/app-root/src/wp-config-sample.php > ${DOCUMENTROOT}/wp-config.php
+#envsubst < /opt/app-root/src/wp-config-sample.php > ${DOCUMENTROOT}/wp-config.php
 exec /usr/libexec/s2i/run
