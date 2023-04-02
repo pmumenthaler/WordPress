@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 echo "...Before calling run..."
-if [ -c /opt/app-root/src/wp-config.php ]
+if [ ! -c /opt/app-root/src/wp-config.php ]
 
   cp -a /tmp/src2/* /opt/app-root/src
   rm -rf /tmp/src2
