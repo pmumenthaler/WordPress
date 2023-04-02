@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 echo "Making pre-invocation changes..."
 
 env
