@@ -14,7 +14,7 @@ sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 mkdir -p /tmp/src2
 cp -a /tmp/src/* /tmp/src2
 /usr/libexec/s2i/assemble
-sed -r -e "s/track_errors = OFF/track_errors = ON/g" /etc/php.ini
+sed -ri -e "s/track_errors = OFF/track_errors = ON/g" /etc/php.ini
 
 rc=$?
 if [ $rc -eq 0 ]; then
