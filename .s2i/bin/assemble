@@ -5,11 +5,6 @@ echo "Making pre-invocation changes..."
 
 #envsubst < /tmp/src/wp-config-sample.php > /tmp/src/wp-config.php
 
-#sed -ri -e "s/database_name_here/$DB_NAME/g" /tmp/src/wp-config.php
-#sed -ri -e "s/username_here/$DB_USER/g" /tmp/src/wp-config.php
-#sed -ri -e "s/password_here/$DB_PASSWORD/g" /tmp/src/wp-config.php
-#sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
-#sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 
 mkdir -p /tmp/src2
 cp -a /tmp/src/* /tmp/src2
@@ -19,6 +14,10 @@ cp -a /tmp/src/* /tmp/src2
 rc=$?
 if [ $rc -eq 0 ]; then
 echo "Making post-invocation changes..."
+  sed -ri -e "s/database_name_here/$DB_NAME/g" /tmp/src/wp-config.php
+  sed -ri -e "s/username_here/$DB_USER/g" /tmp/src/wp-config.php
+  sed -ri -e "s/password_here/$DB_PASSWORD/g" /tmp/src/wp-config.php
+  sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 else
 echo "Error: assemble failed!"
 fi
