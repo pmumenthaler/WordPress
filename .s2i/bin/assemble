@@ -7,6 +7,10 @@ echo "Making pre-invocation changes..."
 
 
 mkdir -p /tmp/src2
+sed -ri -e "s/database_name_here/$DB_NAME/g" /tmp/src/wp-config.php
+sed -ri -e "s/username_here/$DB_USER/g" /tmp/src/wp-config.php
+sed -ri -e "s/password_here/$DB_PASSWORD/g" /tmp/src/wp-config.php
+sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 cp -a /tmp/src/* /tmp/src2
 /usr/libexec/s2i/assemble
 #sed -ri -e "s/track_errors = OFF/track_errors = ON/g" /etc/php.ini
@@ -14,10 +18,6 @@ cp -a /tmp/src/* /tmp/src2
 rc=$?
 if [ $rc -eq 0 ]; then
 echo "Making post-invocation changes..."
-  sed -ri -e "s/database_name_here/$DB_NAME/g" /tmp/src/wp-config.php
-  sed -ri -e "s/username_here/$DB_USER/g" /tmp/src/wp-config.php
-  sed -ri -e "s/password_here/$DB_PASSWORD/g" /tmp/src/wp-config.php
-  sed -ri -e "s/localhost/${DB_HOST}/g" /tmp/src/wp-config.php
 else
 echo "Error: assemble failed!"
 fi
